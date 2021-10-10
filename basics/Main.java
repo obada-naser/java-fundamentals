@@ -1,6 +1,7 @@
 
 import java.time.LocalDateTime;  
-import java.time.format.DateTimeFormatter; 
+import java.time.format.DateTimeFormatter;
+
 
 
 public class Main {
@@ -18,7 +19,10 @@ System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCoun
 
 
 flipNHeads(2);
-clock();
+// clock();
+int[] arrBefore={1, 2, 3, 4, 5, 6};
+System.out.println(Arrays.toString(reverseArray(arrBefore)));
+
 
   }
   public static String pluralize(String str, int num){
@@ -66,19 +70,30 @@ clock();
   }
   
 
-  public static void clock (){
+//   public static void clock (){
       
       
 
-       while(true ){
-           LocalDateTime now = LocalDateTime.now();
-     int hour = now.getHour();
-      int minute = now.getMinute();
-       int second = now.getSecond();
+//        while(true ){
+//            LocalDateTime now = LocalDateTime.now();
+//      int hour = now.getHour();
+//       int minute = now.getMinute();
+//        int second = now.getSecond();
 
-           System.out.println(hour+":"+minute+":"+second);
-       }
+//            System.out.println(hour+":"+minute+":"+second);
+//        }
+
+//   }
+ public static int[] reverseArray(int[] arr){
+    int[] newArr=new int[arr.length];
+    int counter=0;
+
+    for (int i=arr.length-1;i>=0;i--){
+      newArr[counter]=arr[i];
+      counter++;
+      
+    }
+    return newArr;
 
   }
- 
 }
