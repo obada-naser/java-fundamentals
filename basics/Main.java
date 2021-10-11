@@ -19,9 +19,9 @@ System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCoun
 
 
 flipNHeads(2);
-// clock();
-int[] arrBefore={1, 2, 3, 4, 5, 6};
-System.out.println(Arrays.toString(reverseArray(arrBefore)));
+clock();
+// int[] arrBefore={1, 2, 3, 4, 5, 6};
+// System.out.println(Arrays.toString(reverseArray(arrBefore)));
 
 
   }
@@ -70,30 +70,23 @@ System.out.println(Arrays.toString(reverseArray(arrBefore)));
   }
   
 
-//   public static void clock (){
+  public static void clock (){
       
-      
+      int time=0;
 
-//        while(true ){
-//            LocalDateTime now = LocalDateTime.now();
-//      int hour = now.getHour();
-//       int minute = now.getMinute();
-//        int second = now.getSecond();
+       while(true ){
+           LocalDateTime now = LocalDateTime.now();
+     int hour = now.getHour();
+      int minute = now.getMinute();
+       int second = now.getSecond();
+       String timeZone = hour + ":"+minute + ":" + second;
 
-//            System.out.println(hour+":"+minute+":"+second);
-//        }
-
-//   }
- public static int[] reverseArray(int[] arr){
-    int[] newArr=new int[arr.length];
-    int counter=0;
-
-    for (int i=arr.length-1;i>=0;i--){
-      newArr[counter]=arr[i];
-      counter++;
-      
-    }
-    return newArr;
+        if(second!=time){
+           time=second;
+           System.out.println(timeZone);
+        }
+       }
 
   }
+ 
 }
