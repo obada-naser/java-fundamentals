@@ -125,6 +125,81 @@ public class Library {
         return newArr;
     }
 
+    public static int weeklyTemp(int[][] weekMonthTemp) {
+        HashSet<Integer> uniqueTemp = new HashSet<>();
+
+        int high=Integer.MIN_VALUE;
+        int low=Integer.MAX_VALUE;
+
+
+        for (int i = 0; i < weekMonthTemp.length; i++) {
+
+
+            for (int j = 0; j < weekMonthTemp[i].length; j++) {
+                uniqueTemp.add(weekMonthTemp[i][j]);
+                if (weekMonthTemp[i][j] > high) {
+                    high = weekMonthTemp[i][j];
+
+                } else if (weekMonthTemp[i][j] < low) {
+                    low = weekMonthTemp[i][j];
+
+                }
+
+            }
+        }
+
+        System.out.println("high="+high);
+        System.out.println("low="+low);
+
+        for(int i=low;i<high;i++){
+
+            if(!uniqueTemp.contains(i)){
+                System.out.println("Never saw temperature:"+i);
+            }
+
+
+        }
+    return low;
+
+        }
+
+        public static String tally(List<String> votes){
+            HashMap<String,Integer> numOfVote=new HashMap<>();
+            String winningWord="";
+            for(String votedWord: votes){
+
+                if(!numOfVote.containsKey(votedWord)){
+                    numOfVote.put(votedWord,1);
+                }else{
+                    int value=numOfVote.get(votedWord);
+                    value=value+1;
+                    numOfVote.put(votedWord,value);
+                }
+
+            }
+
+            for(Map.Entry<String,Integer> entry : numOfVote.entrySet()){
+                if(entry.getValue()==Collections.max(numOfVote.values())){
+                    winningWord=entry.getKey();
+                }
+
+            }
+
+
+
+            return winningWord;
+
+
+        }
+
+
+
+
+
+
+
+
+
 
 
 

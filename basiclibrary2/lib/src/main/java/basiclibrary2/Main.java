@@ -21,6 +21,19 @@ public class Main {
                 {65, 56, 55, 52, 55, 62, 57}
         };
 
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = lib.tally(votes);
+
 
         int[] arrNum={2,3,5,6,6,7};
         int num=4;
@@ -29,6 +42,12 @@ public class Main {
         System.out.println(lib.arrAverage(avgArr));
         System.out.println(Arrays.toString(lib.tempArr(weeklyMonthTemperatures)));
         System.out.println(Arrays.toString(lib.insertShiftArray(arrNum,num)));
+        lib.weeklyTemp(weeklyMonthTemperatures);
+
+
+
+        System.out.println(winner + " received the most votes!");
+
 
 
 
