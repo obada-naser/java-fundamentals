@@ -3,11 +3,10 @@
  */
 package basiclibrary;
 
-public class Library {
+
     public boolean someLibraryMethod() {
         return true;
     }
-
 
 
 }

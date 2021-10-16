@@ -3,8 +3,206 @@
  */
 package basiclibrary2;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.*;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
     }
+//    public static void main(String[] arg) {
+//
+//
+//        int[] arrBefore={1, 2, 3, 4, 3, 6};
+//
+//        int[] avgArr={2,4,7,8,9,5};
+//
+//        int[][] weeklyMonthTemperatures = {
+//                {66, 64, 58, 65, 71, 57, 60},
+//                {57, 65, 65, 70, 72, 65, 51},
+//                {55, 54, 60, 53, 59, 57, 61},
+//                {65, 56, 55, 52, 55, 62, 57}
+//        };
+//
+//
+//        int[] arrNum={2,3,5,6,6,7};
+//        int num=4;
+//
+////        roll(7);
+////        System.out.println(Arrays.toString(roll(7)));
+//        System.out.println(containsDuplicates(arrBefore));
+//        System.out.println(arrAverage(avgArr));
+//        System.out.println(Arrays.toString(tempArr(weeklyMonthTemperatures)));
+//        System.out.println(Arrays.toString(insertShiftArray(arrNum,num)));
+//    }
+
+
+
+    public static int[] roll(int numOfRolls) {
+        int[] newArr = new int[numOfRolls];
+        Random randNum = new Random();
+        int lowNum = 1;
+        int highNum = 6;
+
+        for(int i = 0; i < newArr.length; i++) {
+            newArr[i] = randNum.nextInt(highNum - lowNum) + lowNum;
+        }
+
+        return newArr;
+    }
+
+    public static boolean containsDuplicates(int[] arrOfNum) {
+        for(int i = 0; i < arrOfNum.length; ++i) {
+            int num = arrOfNum[i];
+
+            for(int j = i + 1; j < arrOfNum.length; ++j) {
+                if (num == arrOfNum[j]) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static double arrAverage(int[] integerNums) {
+        double totalAvg = 0.0D;
+        double sum = 0.0D;
+
+        for(int i = 0; i < integerNums.length; ++i) {
+            sum += (double)integerNums[i];
+        }
+
+        totalAvg = sum / (double)integerNums.length;
+        return totalAvg;
+    }
+
+    public static int[] tempArr(int[][] arrOfArr) {
+        double lowestNum = 1.7976931348623157E308D;
+        double avgArr = 0.0D;
+        double avg = 0.0D;
+        int[] lowestAvg = arrOfArr[0];
+
+        for(int i = 0; i < arrOfArr.length; ++i) {
+            avg = 0.0D;
+
+            for(int j = 0; j < arrOfArr[i].length; ++j) {
+                avg += (double)arrOfArr[i][j];
+            }
+
+            avg /= (double)arrOfArr[i].length;
+            if (avg < lowestNum) {
+                lowestNum = avg;
+                lowestAvg = arrOfArr[i];
+            }
+        }
+
+        return lowestAvg;
+    }
+
+    public static int[] insertShiftArray(int[] arr, int index) {
+        int[] newArr = new int[arr.length + 1];
+        int midNum = arr.length / 2;
+        if (midNum % 2 == 0) {
+            midNum = midNum;
+        } else {
+            ++midNum;
+        }
+
+        newArr[midNum] = index;
+
+        for(int i = 0; i < arr.length + 1; ++i) {
+            if (i > midNum) {
+                newArr[i] = arr[i - 1];
+            }
+
+            if (i < midNum) {
+                newArr[i] = arr[i];
+            }
+        }
+
+        return newArr;
+    }
+
+    public static int weeklyTemp(int[][] weekMonthTemp) {
+        HashSet<Integer> uniqueTemp = new HashSet<>();
+
+        int high=Integer.MIN_VALUE;
+        int low=Integer.MAX_VALUE;
+
+
+        for (int i = 0; i < weekMonthTemp.length; i++) {
+
+
+            for (int j = 0; j < weekMonthTemp[i].length; j++) {
+                uniqueTemp.add(weekMonthTemp[i][j]);
+                if (weekMonthTemp[i][j] > high) {
+                    high = weekMonthTemp[i][j];
+
+                } else if (weekMonthTemp[i][j] < low) {
+                    low = weekMonthTemp[i][j];
+
+                }
+
+            }
+        }
+
+        System.out.println("high="+high);
+        System.out.println("low="+low);
+
+        for(int i=low;i<high;i++){
+
+            if(!uniqueTemp.contains(i)){
+                System.out.println("Never saw temperature:"+i);
+            }
+
+
+        }
+    return low;
+
+        }
+
+        public static String tally(List<String> votes){
+            HashMap<String,Integer> numOfVote=new HashMap<>();
+            String winningWord="";
+            for(String votedWord: votes){
+
+                if(!numOfVote.containsKey(votedWord)){
+                    numOfVote.put(votedWord,1);
+                }else{
+                    int value=numOfVote.get(votedWord);
+                    value=value+1;
+                    numOfVote.put(votedWord,value);
+                }
+
+            }
+
+            for(Map.Entry<String,Integer> entry : numOfVote.entrySet()){
+                if(entry.getValue()==Collections.max(numOfVote.values())){
+                    winningWord=entry.getKey();
+                }
+
+            }
+
+
+
+            return winningWord;
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

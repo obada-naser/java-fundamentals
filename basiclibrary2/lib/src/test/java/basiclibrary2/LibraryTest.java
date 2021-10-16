@@ -4,6 +4,8 @@
 package basiclibrary2;
 
 import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
@@ -11,4 +13,73 @@ class LibraryTest {
         Library classUnderTest = new Library();
         assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
     }
+    @Test
+    void roll(){
+        Library library = new Library();
+        assertEquals(6,library.roll(6).length, "roll array length should return array of length= 6");
+
+
+    }
+
+
+    @Test
+     void duplicatesTester(){
+        Library library = new Library();
+        int[] arrTrue={1,2,2,3};
+        int[] arrFalse={1,2,4,5};
+
+        assertTrue(library.containsDuplicates(arrTrue),"containsDuplicates method should return True");
+        assertFalse(library.containsDuplicates(arrFalse),"containsDuplicates method should return False");
+
+    }
+    @Test
+    void avgTester(){
+        Library library = new Library();
+        int[] avg={5,4,3,4};
+        assertEquals(4.0,library.arrAverage(avg),"the average of the array should return 4 ");
+    }
+    @Test
+     void tempArrLow(){
+        Library library = new Library();
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        int[] expectedArray={55, 54, 60, 53, 59, 57, 61};
+        assertArrayEquals(expectedArray,library.tempArr(weeklyMonthTemperatures),"The average array should equal [55, 54, 60, 53, 59, 57, 61]");
+
+    }
+    @Test
+    void weeklyTemp(){
+        Library library = new Library();
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        assertEquals(51,library.weeklyTemp(weeklyMonthTemperatures),"the low value should be returned 51");
+    }
+    @Test
+    void tallyTest(){
+        Library library = new Library();
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        assertEquals("Bush",library.tally(votes),"The most voted word should be Bush");
+
+
+    }
+
+
 }
