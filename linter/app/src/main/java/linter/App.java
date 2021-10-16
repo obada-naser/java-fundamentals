@@ -3,6 +3,12 @@
  */
 package linter;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +16,40 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        Path path=Paths.get("resources/gates.js");
+
+        linter(path);
+
+    }
+
+    public static int linter(Path path){
+        int lineIncrease=0;
+        int err=0;
+    try{
+
+        List<String> fileLines=Files.readAllLines(path);
+        for(String line:fileLines){
+            lineIncrease++;
+            if(!(line.isEmpty())){
+                if(line. contains("{") || line.contains("}") || line.contains("if") || line.contains("else")){
+
+                System.out.println("No error");
+                }
+                else{
+                    System.out.println("there is an error in line : "+ lineIncrease);
+                    err++;
+                }
+            }
+        }
+
+
+    } catch (IOException exception){
+            System.out.println("An error occurred while reading from file");
+        }
+        return err;
+
     }
 }
+
+
+
