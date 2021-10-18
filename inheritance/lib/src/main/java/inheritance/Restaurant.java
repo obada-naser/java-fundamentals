@@ -51,7 +51,7 @@ public class Restaurant {
 
         this.reviews.add(rev);
 
-
+    rating();
     }
 
     public void rating(){
