@@ -1,6 +1,6 @@
 package inheritance;
 
-public class Review {
+public class Review implements{
 
     private String body;
     private String autherName;
@@ -35,7 +35,7 @@ public class Review {
     public void setStars(int stars) {
         this.stars = stars;
     }
-    @Override
+
     public String toString(){
 
 
