@@ -3,11 +3,11 @@ package inheritance;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant {
+public class Restaurant implements mallInterface{
     private String name;
     private int stars;
     private String dollarSign;
-    List<Review> reviews = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();
 
 
     public Restaurant(String name, int stars) {
@@ -51,13 +51,17 @@ public class Restaurant {
 
         this.reviews.add(rev);
 
-
+         rating();
     }
 
     public void rating(){
         double gettingReview=0;
+
+
         for(int i=0;i<getReviews().size();i++){
             gettingReview=gettingReview+getReviews().get(i).getStars();
+
+
 
         }
         gettingReview=Math.round(gettingReview/getReviews().size());

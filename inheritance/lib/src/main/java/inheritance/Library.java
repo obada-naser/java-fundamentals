@@ -22,8 +22,13 @@ public class Library {
         System.out.println(rev);
 
         restaurant1.addReview(rev);
-        restaurant2.addReview(rev2);
+        restaurant1.addReview(rev2);
         restaurant3.addReview(rev3);
+
+        restaurant1.toString();
+
+        System.out.println(restaurant1);
+
         System.out.println(restaurant1.getReviews());
 
     }
