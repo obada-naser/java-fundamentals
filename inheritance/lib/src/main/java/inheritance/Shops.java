@@ -1,5 +1,7 @@
 package inheritance;
 
+import java.util.List;
+
 public class Shops extends Restaurant implements mallInterface{
 
 
@@ -16,6 +18,11 @@ public class Shops extends Restaurant implements mallInterface{
         return super.getName();
     }
 
+    public List<Review> getReviews() {
+
+        return super.getReviews();
+    }
+
 
 
     public String getDescription() {
@@ -30,38 +37,24 @@ public class Shops extends Restaurant implements mallInterface{
         return super.getDollarSign();
     }
 
+    @Override
+    public int getStars(){
+        return super.getStars();
 
+    }
 
     public void addReview(Review rev){
 
-        this.reviews.add(rev);  
+        super.getReviews().add(rev);
 
-        rating();
-    }
-
-    public void rating(){
-        double gettingReview=0;
-
-
-        for(int i=0;i<getReviews().size();i++){
-            gettingReview=gettingReview+getReviews().get(i).getStars();
-
-
-
-        }
-        gettingReview=Math.round(gettingReview/getReviews().size());
-        this.stars=(int) gettingReview;
-
-
-
-
+        super.rating();
     }
 
 
     @Override
     public String toString(){
-        String shopString = "shop name: "+this.name+"\n"+"description: "+this.description+"\n"+"price: "
-                +this.dollarSign;
+        String shopString = "shop name: "+getName()+"\n"+"description: "+this.description+"\n"+"price: "+
+                getDollarSign()+" \n"+" Raring: "+getStars();
 
         return shopString;
 

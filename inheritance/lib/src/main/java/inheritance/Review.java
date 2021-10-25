@@ -1,6 +1,6 @@
 package inheritance;
 
-public class Review implements{
+public class Review {
 
     private String body;
     private String autherName;
