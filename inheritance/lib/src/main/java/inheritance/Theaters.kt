@@ -1,6 +1,0 @@
-package inheritance
-
-class Theaters {
-
-
-}

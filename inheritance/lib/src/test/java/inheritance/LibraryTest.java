@@ -49,5 +49,82 @@ class LibraryTest {
         assertEquals("The review of this restaurant is very good by obada with  a rating equal 4 stars.",rev.toString(),
                 "it should print this (The review of this restaurant is very good by obada with  a rating equal 4 stars.)");
     }
+    @Test void shopsConstructor(){
+        Shops shop=new Shops("city mall","very good shop");
+        assertEquals("city mall",shop.getName());
+        assertEquals("very good shop",shop.getDescription());
+
+    }
+
+    @Test void shopsToString(){
+        Shops shop=new Shops("city mall","very good shop");
+
+        assertEquals("shop name: city mall\n" +
+                "description: very good shop\n" +
+                "price: null \n" +
+                " Raring: 3" ,shop.toString());
+
+
+
+    }
+
+    @Test void theatersConstructor(){
+        Theaters theater1=new Theaters("grand theaters");
+
+        assertEquals("grand theaters",theater1.getTheaterName());
+    }
+
+    @Test void removeMovieTest(){
+        Theaters theater1=new Theaters("grand theaters");
+
+        theater1.addMovie("bleach");
+        theater1.addMovie("titanic");
+        theater1.removeMovie("bleach");
+
+        assertEquals(theater1.getMovieList().size(),1,theater1.getMovieList().size());
+    }
+
+    @Test void addMovieTest(){
+        Theaters theater1=new Theaters("grand theaters");
+
+        theater1.addMovie("bleach");
+        theater1.addMovie("titanic");
+        theater1.addMovie("bleach");
+
+        assertEquals(theater1.getMovieList().size(),1,theater1.getMovieList().size());
+    }
+    @Test void movieToString(){
+        Theaters theater1=new Theaters("grand theaters");
+        Review rev=new Review("very good","obada",4);
+        theater1.addMovie("bleach");
+
+        theater1.addMovie("titanic");
+
+        theater1.moviesAddReview(rev,"bleach");
+
+
+        assertEquals("Theaters{theaterName='grand theaters', MovieList=[bleach, titanic], reviews=[The review of this restaurant is very good by obada with  a rating equal 4 stars.]}",theater1.toString());
+    }
+
+    @Test void movieAddReview(){
+        Theaters theater1=new Theaters("grand theaters");
+        Review rev=new Review("very good","obada",4);
+        theater1.addMovie("bleach");
+
+        theater1.addMovie("titanic");
+
+        theater1.addReview(rev);
+
+        assertEquals(theater1.getReviews().size(),1,theater1.getReviews().size());
+
+    }
+
+
+
+
+
+
+
+
 
 }

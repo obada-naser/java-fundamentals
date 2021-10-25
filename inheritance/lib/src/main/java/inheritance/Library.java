@@ -25,11 +25,29 @@ public class Library {
         restaurant1.addReview(rev2);
         restaurant3.addReview(rev3);
 
+        Theaters theater1=new Theaters("grand theaters");
+        theater1.addMovie("bleach");
+
+        theater1.addMovie("titanic");
+
+        theater1.moviesAddReview(rev,"bleach");
+
+
+        System.out.println("*************");
+        System.out.println( theater1.toString());
+
+
         restaurant1.toString();
+        theater1.removeMovie("bleach");
+        theater1.moviesAddReview(rev,"bleach");
+        System.out.println( theater1.toString());
 
         System.out.println(restaurant1);
 
         System.out.println(restaurant1.getReviews());
+        Shops shop=new Shops("city mall","very good shop");
+
+        System.out.println(shop.toString());
 
     }
 }
